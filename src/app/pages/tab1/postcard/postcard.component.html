@@ -21,19 +21,17 @@
     <ion-row style="width: 100%;">
       <ion-item>
         <ion-avatar slot="start" (click)="navigateToProfile(data.user.login.uuid,data.user)">
-          <img src="{{data.user.picture.large}}">
+          <!-- <img src="{{data.user.picture.large}}"> -->
+          <img [defaultImage]="loadingImg" [lazyLoad]="data.user.picture.large" />
+
         </ion-avatar>
         <ion-label class="ion-label">{{data.user.login.username}}</ion-label>
       </ion-item>
     </ion-row>
     <ion-row style="width: 100%;">
-
-      <ion-thumbnail>
-        <ion-img src="{{data.post.download_url}}">
-        </ion-img>
-      </ion-thumbnail>
+      <img style="object-fit: cover;" [src]="data.post.download_url" />
     </ion-row>
-    <ion-row style="width: 100%; align-items: center;">
+    <ion-row style="width: 100%; align-items: center;margin-top: 2%;">
       <ion-col size="1">
         <ion-icon src="assets/icon/heart.svg"></ion-icon>
       </ion-col>

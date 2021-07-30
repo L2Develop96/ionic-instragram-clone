@@ -18,6 +18,8 @@ export class PostcardComponent implements OnInit {
   imagesList: Array<Post> = [];
   combinedArrays: { user: User; post: Post }[] = [];
   page = 1;
+  loadingImg = '../assets/imgs/loading2.gif';
+
 
   constructor(
     private postService: PostService,
