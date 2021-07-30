@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfilePage } from './postcard/profile/profile.page';
-import { Tab1Page } from './tab1.page';
+import { Tab1Page } from './home.page';
 
 const routes: Routes = [
   {
