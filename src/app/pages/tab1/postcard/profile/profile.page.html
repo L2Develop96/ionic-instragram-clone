@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar class="customToolbar">
+    <ion-buttons slot="start">
+      <ion-icon (click)="goback()" slot="icon-only" style="color: white" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title style="color: white">{{userName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="darkBg">
+  <ion-row style="align-items: center;padding: 5%;">
+    <ion-col size="3">
+      <ion-avatar>
+        <img src="{{profilePic}}">
+      </ion-avatar>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-row class="centerRow">
+        <ion-label>436</ion-label>
+      </ion-row>
+      <ion-row class="centerRow">
+        <ion-label>Post</ion-label>
+      </ion-row>
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-row class="centerRow">
+        <ion-label>11M</ion-label>
+      </ion-row>
+      <ion-row class="centerRow">
+        <ion-label>Followers</ion-label>
+      </ion-row>
+
+
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-row class="centerRow">
+        <ion-label>508</ion-label>
+      </ion-row>
+      <ion-row class="centerRow">
+        <ion-label>Following</ion-label>
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="text-align: center;">
+
+      <ion-button class="Btn" style="background-color: rgb(34, 152, 255);">
+        <ion-label class="btnText">Follow</ion-label>
+      </ion-button>
+    </ion-col>
+
+    <ion-col style="text-align: center">
+      <ion-button class="Btn" fill="none" style="border: 2px solid grey;">
+        <ion-label class="btnText">Message</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="width: 100%;">
+    <ion-col size="4" *ngFor="let img of imagesList">
+      <div style="height: 120px;">
+        <img class="imgFit" [defaultImage]="loadingImg" [lazyLoad]="img.download_url" />
+      </div>
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-content>

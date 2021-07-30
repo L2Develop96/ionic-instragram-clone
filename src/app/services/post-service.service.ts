@@ -13,12 +13,10 @@ export class PostService {
   ) { }
 
   loadUsers(page: number) {
-    console.log(page);
     return this.http.get(`https://randomuser.me/api/?page=${page}&results=10&seed=feed`)
   }
 
   loadImages(page: number) {
-    console.log(page);
     return this.http.get(`https://picsum.photos/v2/list?page=${page}&limit=10`)
   }
 }

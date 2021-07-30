@@ -1,0 +1,25 @@
+ion-label{
+    color: white;
+}
+
+.centerRow{
+    display: flex;
+    place-content: center;
+}
+
+.Btn{
+    width: 90%;
+    height: 30px;
+    border-radius: 5%;
+}
+
+.btnText{
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.imgFit{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

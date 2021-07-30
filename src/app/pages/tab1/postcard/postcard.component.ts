@@ -1,8 +1,10 @@
+/* eslint-disable max-len */
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { IonInfiniteScroll, NavController, PopoverController } from '@ionic/angular';
 import { PostService } from 'src/app/services/post-service.service';
 import { Post } from 'src/app/_interfaces/post';
 import { Result, User } from 'src/app/_interfaces/user';
+import { SharingComponent } from './sharing/sharing.component';
 
 @Component({
   selector: 'app-postcard',
@@ -18,12 +20,13 @@ export class PostcardComponent implements OnInit {
   page = 1;
 
   constructor(
-    private postService: PostService
+    private postService: PostService,
+    private popoverController: PopoverController,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
     this.getUser(false, '');
-    console.log(this.usersList);
   }
 
   getUser(isFirstLoad, eventName) {
@@ -38,7 +41,6 @@ export class PostcardComponent implements OnInit {
           this.usersList.forEach((userr, index) => {
             this.combinedArrays.push({ user: userr, post: this.imagesList[index] });
           });
-          console.log(this.combinedArrays);
           if (isFirstLoad) {
             eventName.target.complete();
           }
@@ -78,4 +80,17 @@ export class PostcardComponent implements OnInit {
       event.target.complete();
     }, 2000);
   }
+
+  async presentSharing() {
+    const popover = await this.popoverController.create({
+      component: SharingComponent,
+      mode: 'ios',
+      translucent: true,
+    });
+    return await popover.present();
+  }
+
+  navigateToProfile(id, data) {
+    this.navCtrl.navigateForward(['/tabs/tab1/profile', id], { queryParams: { firstName: data.name.first, lastName: data.name.last, userName: data.login.username, pic: data.picture.large } });
+  };
 }
