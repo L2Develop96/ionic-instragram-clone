@@ -1,22 +1,41 @@
-<div>
-  <ion-row *ngFor="let user of usersList">
-    <ion-row>
+<ion-content class="darkBg" *ngIf="combinedArrays.length">
+
+  <ion-refresher pullFactor="0.5" pullMin="70" pullMax="100" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <div class="stories">
+    <div class="add_story">
+      <img src="https://randomuser.me/api/portraits/women/60.jpg">
+      <ion-icon color="primary" name="add-circle"></ion-icon>
+    </div>
+    <div class="img-box" *ngFor="let user of usersList">
+      <img src="{{ user.picture.large }}">
+    </div>
+
+  </div>
+
+  <ion-row *ngFor="let data of combinedArrays;" style="margin-top: 2%">
+    <ion-row style="width: 100%;">
       <ion-item>
         <ion-avatar slot="start">
-          <img src="{{user.picture.large}}">
+          <img src="{{data.user.picture.large}}">
         </ion-avatar>
-        <ion-label class="ion-label">{{user.login.username}}</ion-label>
+        <ion-label class="ion-label">{{data.user.login.username}}</ion-label>
       </ion-item>
     </ion-row>
-    <ion-row>
+    <ion-row style="width: 100%;">
+
       <ion-thumbnail>
-        <ion-img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ">
+        <ion-img src="{{data.post.download_url}}">
         </ion-img>
       </ion-thumbnail>
     </ion-row>
     <ion-row style="width: 100%; align-items: center;">
       <ion-col size="1">
-        <ion-icon style="color: white;font-size: 20px;" name="heart-outline"></ion-icon>
+        <ion-icon src="assets/icon/heart.svg"></ion-icon>
       </ion-col>
       <ion-col size="1">
         <ion-icon src="assets/icon/comment.svg"></ion-icon>
@@ -36,13 +55,22 @@
       <ion-label class="ion-label">75 Likes</ion-label>
     </ion-row>
     <ion-row style="padding-left: 2%; margin-top: 1%;margin-bottom: 1%">
-      <ion-label class="ion-label"> <b>{{user.login.username}}</b> Lorem ipsum dolor sit amet, consectetur adipiscing
+      <ion-label class="ion-label"> <b>{{data.user.login.username}}</b> Lorem ipsum dolor sit amet, consectetur
+        adipiscing
         elit</ion-label>
     </ion-row>
 
-    <ion-row style="padding-left: 2%">
-      <ion-label style="color: rgb(95, 95, 95)">View all 261 comments</ion-label>
+    <ion-row style="width: 100%;padding-left: 2%; margin-bottom: 1%;">
+      <ion-label style="color: rgb(111, 111, 111)">View all 261 comments</ion-label>
+    </ion-row>
+
+    <ion-row style="padding-left: 2%;">
+      <ion-label style="font-size: 12px;color: rgb(111, 111, 111)">49 minutes ago</ion-label>
     </ion-row>
   </ion-row>
-
-</div>
+  <ion-infinite-scroll *ngIf="combinedArrays.length" #infiniteScroll threshold="100px"
+    (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content style="--color: white" loading-spinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

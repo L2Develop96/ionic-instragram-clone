@@ -3,15 +3,18 @@
     <ion-grid>
       <ion-row style="align-items: center;">
         <ion-col size="8">
-          <ion-title style="color: white">
+          <!-- <ion-title style="color: white; font-size: 25px;">
             𝓘𝓷𝓼𝓽𝓪𝓬𝓵𝓸𝓷𝓮
-          </ion-title>
+          </ion-title> -->
+          <ion-img style="width: 50%" src="assets/imgs/logo.png">
+
+          </ion-img>
         </ion-col>
         <ion-col size="1">
           <ion-icon src="assets/icon/add.svg"></ion-icon>
         </ion-col>
-        <ion-col size="2" style="padding-left: 5%;">
-          <ion-icon style="color: white;font-size: x-large;" name="heart-outline"></ion-icon>
+        <ion-col size="1" style="margin-left: 2%; margin-right: 2%">
+          <ion-icon src="assets/icon/heart.svg"></ion-icon>
         </ion-col>
         <ion-col size="1">
           <ion-icon src="assets/icon/send.svg"></ion-icon>
@@ -22,11 +25,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="darkBg" [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <app-postcard></app-postcard>
-  <!-- <ion-infinite-scroll *ngIf="initalEvents.length" #infiniteScroll threshold="100px"
-  (ionInfinite)="doInfinite($event)">
-  <ion-infinite-scroll-content loading-spinner="bubbles">
-  </ion-infinite-scroll-content>
-</ion-infinite-scroll> -->
+
 </ion-content>
