@@ -1,0 +1,48 @@
+<div>
+  <ion-row *ngFor="let user of usersList">
+    <ion-row>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{user.picture.large}}">
+        </ion-avatar>
+        <ion-label class="ion-label">{{user.login.username}}</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-thumbnail>
+        <ion-img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ">
+        </ion-img>
+      </ion-thumbnail>
+    </ion-row>
+    <ion-row style="width: 100%; align-items: center;">
+      <ion-col size="1">
+        <ion-icon style="color: white;font-size: 20px;" name="heart-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="1">
+        <ion-icon src="assets/icon/comment.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="1">
+        <ion-icon src="assets/icon/send.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-end">
+          <ion-icon style="color: white" name="bookmark-outline"></ion-icon>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row style="padding-left: 2%">
+      <ion-label class="ion-label">75 Likes</ion-label>
+    </ion-row>
+    <ion-row style="padding-left: 2%; margin-top: 1%;margin-bottom: 1%">
+      <ion-label class="ion-label"> <b>{{user.login.username}}</b> Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit</ion-label>
+    </ion-row>
+
+    <ion-row style="padding-left: 2%">
+      <ion-label style="color: rgb(95, 95, 95)">View all 261 comments</ion-label>
+    </ion-row>
+  </ion-row>
+
+</div>
